@@ -51,7 +51,9 @@ class App extends React.Component {
     addToList = event => {
       event.preventDefault();
       this.setState({
-        todoList: [...this.state.todoList, {task: this.state.inputText, id: Date.now(), completed: false}]
+        todoList: [...this.state.todoList, 
+          {task: this.state.inputText, id: Date.now(), completed: false}],
+          task: ''
       })
     }
 
@@ -60,7 +62,10 @@ class App extends React.Component {
       <div className='app'>
         <h2>My ToDo List</h2>
         <TodoList todoList={this.state.todoList} task={this.state.task} />
-        <TodoForm inputText={this.state.inputText} changes={this.changes} />
+        <TodoForm 
+        addToList={this.addToList}
+        inputText={this.state.inputText} 
+        changes={this.changes} />
       </div>
     );
   }
