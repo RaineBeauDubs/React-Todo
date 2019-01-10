@@ -45,8 +45,15 @@ class App extends React.Component {
     }
 
     changes = event => {
-      this.setState({[event.target.name]: event.target.value});
+      this.setState({inputText: event.target.value});
     };
+
+    addToList = event => {
+      event.preventDefault();
+      this.setState({
+        todoList: [...this.state.todoList, {task: this.state.inputText, id: Date.now(), completed: false}]
+      })
+    }
 
   render() {
     return (

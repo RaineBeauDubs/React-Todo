@@ -2,7 +2,7 @@ import React from 'react';
 
 function TodoForm(props) {
   return (
-    <form>
+    <form onSubmit={props.addToList}>
       <input
       type="text"
       name="inputText"
@@ -11,6 +11,8 @@ function TodoForm(props) {
       value={props.inputText}
       
       onChange={props.changes} />
+      <button>Add</button>
+      <button type="clear">Clear Completed</button>
     </form>
   )
 }
